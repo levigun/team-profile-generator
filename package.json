@@ -1,0 +1,22 @@
+{
+  "name": "team-profile-generator",
+  "version": "1.0.0",
+  "description": "Generates the team profile",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/levigun/team-profile-generator.git"
+  },
+  "author": "Theresa Levina Gunawan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/levigun/team-profile-generator/issues"
+  },
+  "homepage": "https://github.com/levigun/team-profile-generator#readme"
+}
