@@ -74,6 +74,7 @@ const questions = async () => {
           );
           newEmployee.push(newManager);
 
+    //  if intern is chosen, these following questions will be added  
     } else if (answers.role === "Intern") {
         const internAns = await inquirer 
         .prompt([
@@ -93,6 +94,7 @@ const questions = async () => {
         }
 };
 
+// created function for adding new member or generate team
 async function promptQuestions() {
     await questions()
 
@@ -110,11 +112,16 @@ async function promptQuestions() {
         if (addMemberAns.addMember === 'Add a new member') {
             return promptQuestions()
         }
+        // called out the createTeam function
         return createTeam();
 }
 
+// called out the promQuestions function
 promptQuestions();
 
+// created a create team function
 function createTeam() {
     fs.writeFileSync("./dist/index.html", teamGenerator(newEmployee), "utf-8");
+    console.log("You have succesfully created your team profile!")
 }
+

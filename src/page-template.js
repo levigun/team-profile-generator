@@ -1,84 +1,38 @@
 // creating the team
 const generateTeam = (team) => {
-    // recreating the manager card
-    const generateManager = (manager) => {
+
+    function generateCard(employee){
+
+        let specialItem  ="";
+        if(employee.getRole() === 'Manager'){
+            specialItem = `<li class="list-group-item">Office number: ${employee.getOfficeNumber()}</li>`
+        }else if(employee.getRole() === 'Engineer'){
+            specialItem = `<li class="list-group-item">GitHub: <a href="https://github.com/${employee.getGithub()}"
+            target="_blank" rel="noopener noreferrer">${employee.getGithub()}</a></li>`
+        }else if(employee.getRole() === 'Intern'){
+            specialItem =   `<li class="list-group-item">School: ${employee.getSchool()}</li>`
+        }
+
         return `
             <div class="card employee-card">
             <div class="card-header">
-                <h2 class="card-title">${manager.getName()}</h2>
-                <h3 class="card-title"><i class="fas fa-mug-hot mr-2"></i>${manager.getRole()}</h3>
+                <h2 class="card-title">${employee.getName()}</h2>
+                <h3 class="card-title"><i class="fas fa-mug-hot mr-2"></i>${employee.getRole()}</h3>
             </div>
             <div class="card-body">
                 <ul class="list-group">
-                    <li class="list-group-item">ID: ${manager.getId()}</li>
+                    <li class="list-group-item">ID: ${employee.getId()}</li>
                     <li class="list-group-item">Email: <a
-                            href="mailto:${manager.getEmail()}">${manager.getEmail()}</a></li>
-                    <li class="list-group-item">Office number: ${manager.getOfficeNumber()}</li>
+                            href="mailto:${employee.getEmail()}">${employee.getEmail()}</a></li>
+                    ${specialItem}
                 </ul>
             </div>
         </div>`;
-    };
+    }
+ 
+    return team.map(generateCard).join('');
 
-    // recreating the engineer card
-    const generateEngineer = (engineer) => {
-        return `
-        <div class="card employee-card">
-                            <div class="card-header">
-                                <h2 class="card-title">${engineer.getName()}</h2>
-                                <h3 class="card-title"><i class="fas fa-glasses mr-2"></i>${engineer.getRole()}</h3>
-                            </div>
-                            <div class="card-body">
-                                <ul class="list-group">
-                                    <li class="list-group-item">ID: ${engineer.getId()}</li>
-                                    <li class="list-group-item">Email: <a href="mailto:${engineer.getEmail()}">${engineer.getEmail()}</a>
-                                    </li>
-                                    <li class="list-group-item">GitHub: <a href="https://github.com/${engineer.getGithub()}"
-                                            target="_blank" rel="noopener noreferrer">${engineer.getGithub()}</a></li>
-                                </ul>
-                            </div>
-                        </div> `;
-    };
-
-    // recreating the intern card
-    const generateIntern = (intern) => {
-        return `
-        <div class="card employee-card">
-                            <div class="card-header">
-                                <h2 class="card-title">${intern.getName()}</h2>
-                                <h3 class="card-title"><i class="fas fa-user-graduate mr-2"></i>${intern.getRole()}</h3>
-                            </div>
-                            <div class="card-body">
-                                <ul class="list-group">
-                                    <li class="list-group-item">ID: ${intern.getId()}</li>
-                                    <li class="list-group-item">Email: <a
-                                            href="mailto:${intern.getEmail()}">${intern.getEmail()}</a></li>
-                                    <li class="list-group-item">School: ${intern.getSchool()}</li>
-                                </ul>
-                            </div>
-                        </div> `;
-    };
-
-    const html = [];
-
-    html.push(team
-        .filter((employee) => employee.getRole() === "Manager")
-        .map((manager) => generateManager(manager))
-    );
-
-    html.push(team
-        .filter((employee) => employee.getRole() === "Engineer")
-        .map((engineer) => generateEngineer(engineer))
-        .join("")
-    );
-
-    html.push(team
-        .filter((employee) => employee.getRole() === "Intern")
-        .map((intern) => generateIntern(intern))
-        .join("")
-    );
-
-    return html.join("");
-
+    
 };
 
 // export the function to generate the entire team profile page
@@ -115,3 +69,4 @@ module.exports = (team) => {
   </html>
       `;
   };
+
