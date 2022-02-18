@@ -6,7 +6,7 @@ describe('Employee', () => {
         // arrange, accts, and assert
         it("should contain employee", () => {
             const e = new Employee();
-            expect(typeof(e)).toBe("obejct");
+            expect(typeof(e)).toBe("object");
         });
 
         it("can set a name via constructor arguments", () => {
