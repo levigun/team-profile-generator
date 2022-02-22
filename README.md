@@ -41,7 +41,11 @@ Follow these instructions to generate you team profile:
 7. You will then presented with your team profile in accordance to all the answers you have inputed.
 
 ## Video Walkthrough
-![team-profile-video-walkthrough](./assets/team-profile-generator-walkthrough.gif)
+
+Video link:
+
+https://drive.google.com/file/d/1OaisG1IJBKlgscEeOBAoQw3ycsjSd1b9/view?usp=sharing
+
 
 ## Reference
 
